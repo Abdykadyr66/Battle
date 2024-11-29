@@ -24,7 +24,7 @@ def is_valid_position(board, ship):
             return False
         if board[r][c] == "S" or board[r][c] == "X":
             return False
- for (r, c) in ship:
+    for (r, c) in ship:
         for i in range(-1, 2):
             for j in range(-1, 2):
                 nr, nc = r + i, c + j
@@ -91,7 +91,7 @@ def play_game():
     
     shots_taken = 0
     clear_screen()
- while not all_ships_sunk(board):
+    while not all_ships_sunk(board):
         display_board(board)  
         shot = input(f"Player {player_name}, enter your shot (e.g., A1): ").upper()
         
