@@ -32,5 +32,10 @@ def is_valid_position(board, ship):
                     return False
 
     return True
+def place_ship(board, size):
+    while True:
+        orientation = random.choice(["H", "V"])  
+        row = random.randint(0, 6)
+        col = random.randint(0, 6)
 
   
