@@ -24,7 +24,7 @@ def is_valid_position(board, ship):
             return False
         if board[r][c] == "S" or board[r][c] == "X":
             return False
-    for (r, c) in ship:
+     for (r, c) in ship:
         for i in range(-1, 2):
             for j in range(-1, 2):
                 nr, nc = r + i, c + j
