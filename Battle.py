@@ -120,6 +120,22 @@ def play_game():
     print(f"Congratulations, {player_name}! You've sunk all the ships in {shots_taken} shots.")
     
     return shots_taken
+def main():
+    player_scores = []
+    while True:
+        shots_taken = play_game()
+        player_scores.append(shots_taken)
+        
+        replay = input("Do you want to play again? (yes/no): ").lower()
+        if replay == "no":
+            break
+    print("\nLeaderboard:")
+    for i, score in enumerate(sorted(player_scores)):
+        print(f"Player {i + 1}: {score} shots")
+
+if __name__ == "__main__":
+    main()
+
 
 
   
