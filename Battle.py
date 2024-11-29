@@ -72,6 +72,26 @@ def process_shot(board, shot, ships):
     else:
         board[row][col] = "O"
         return "miss", board
+def all_ships_sunk(board):
+    return all(cell != "S" for row in board for cell in row)
+
+
+def play_game():
+    player_name = input("Enter your name: ")
+    
+    board = create_empty_board()
+    ships = []
+    ships.append(place_ship(board, 3))  
+    ships.append(place_ship(board, 2))  
+    ships.append(place_ship(board, 2))
+    ships.append(place_ship(board, 1))  
+    ships.append(place_ship(board, 1))
+    ships.append(place_ship(board, 1))
+    ships.append(place_ship(board, 1))
+    
+    shots_taken = 0
+    clear_screen()
+  
 
 
   
