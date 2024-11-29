@@ -2,7 +2,7 @@ import random
 import os
 def clear_screen():
   os.system('cls' if os.name == 'nt' else 'clear')
-  def display_board(board, reveal=False):
+def display_board(board, reveal=False):
     print("  A B C D E F G")
     for row in range(7):
         display_row = []
