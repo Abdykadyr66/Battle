@@ -16,4 +16,7 @@ def clear_screen():
             else:
                 display_row.append(cell)
         print(f"{row+1} {' '.join(display_row)}")
+def create_empty_board():
+    return [[" " for _ in range(7)] for _ in range(7)]
+
   
