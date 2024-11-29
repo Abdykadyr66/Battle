@@ -38,11 +38,17 @@ def place_ship(board, size):
         row = random.randint(0, 6)
         col = random.randint(0, 6)
 
-if orientation == "H" and col + size <= 7:
+        if orientation == "H" and col + size <= 7:
             ship = [(row, col + i) for i in range(size)]
             if is_valid_position(board, ship):
                 for (r, c) in ship:
                     board[r][c] = "S"
+                return ship
+        elif orientation == "V" and row + size <= 7:
+            ship = [(row + i, col) for i in range(size)]
+            if is_valid_position(board, ship):
+                for (r, c) in ship:
+                    board[r][c] = "S"  
                 return ship
 
   
