@@ -18,5 +18,11 @@ def clear_screen():
         print(f"{row+1} {' '.join(display_row)}")
 def create_empty_board():
     return [[" " for _ in range(7)] for _ in range(7)]
+def is_valid_position(board, ship):
+    for (r, c) in ship:      
+        if r < 0 or r >= 7 or c < 0 or c >= 7:
+            return False
+        if board[r][c] == "S" or board[r][c] == "X":
+            return False
 
   
