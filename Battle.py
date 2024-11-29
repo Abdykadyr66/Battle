@@ -50,5 +50,28 @@ def place_ship(board, size):
                 for (r, c) in ship:
                     board[r][c] = "S"  
                 return ship
+def process_shot(board, shot, ships):
+    row = int(shot[1]) - 1
+    col = ord(shot[0].upper()) - ord('A')
+    
+    if row < 0 or row >= 7 or col < 0 or col >= 7:
+        return "out_of_bounds", board
+    
+    if board[row][col] == "X" or board[row][col] == "O":
+        return "already_shot", board
+    
+    if board[row][col] == "S":  
+        board[row][col] = "X"
+        for ship in ships:
+            if all(board[r][c] == "X" for r, c in ship):
+                for r, c in ship:
+                    board[r][c] = "D"
+                return "sunk", board
+        return "hit", board
+    
+    else:
+        board[row][col] = "O"
+        return "miss", board
+
 
   
