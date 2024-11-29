@@ -91,7 +91,35 @@ def play_game():
     
     shots_taken = 0
     clear_screen()
-  
+ while not all_ships_sunk(board):
+        display_board(board)  
+        shot = input(f"Player {player_name}, enter your shot (e.g., A1): ").upper()
+        
+        if len(shot) < 2 or not ('A' <= shot[0] <= 'G') or not ('1' <= shot[1] <= '7'):
+            print("Invalid input! Please enter a valid shot (e.g., A1).")
+            continue
+        
+        shots_taken += 1
+        result, updated_board = process_shot(board, shot, ships)
+        board = updated_board
+        clear_screen()
+        
+        if result == "out_of_bounds":
+            print("You shot out of bounds! Try again.")
+        elif result == "already_shot":
+            print("You already shot here! Try again.")
+        elif result == "hit":
+            print("You hit a ship!")
+        elif result == "miss":
+            print("You missed!")
+        elif result == "sunk":
+            print("You sunk a ship!")
+        
+        display_board(board)
+    
+    print(f"Congratulations, {player_name}! You've sunk all the ships in {shots_taken} shots.")
+    
+    return shots_taken
 
 
   
